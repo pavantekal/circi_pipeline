@@ -64,6 +64,7 @@ exports.config = {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: ['--headless', '--disable-gpu', '--disable-infobars', '--window-size=1920,1440'],
+            binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
         }
 
 
