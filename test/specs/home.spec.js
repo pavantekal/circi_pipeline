@@ -1,14 +1,14 @@
 import homePage from '../pages/home.page';
+import loginPage from '../pages/lookup.page';
+import lookupPage from '../pages/lookup.page';
 
-describe('Home Page Suite', function() {
-  it('should have Load Delay section', function() {
+describe('Login Page Suite', function() {
+  it('Login to Shopify ', function() {
     // Using component to capture repeating html part
     homePage
-        .open()
-        .verifyTextInPage('UI Test Automation');
-    expect(homePage.pageModals[3].title).toEqual('Load Delay');
-    expect(homePage.pageModals[3].content).toEqual(
-        'Ensure that a test is capable of waiting for a page to load');
-    utilities.takeScreenshot('homepage');
+        .open().updateButtonText('kaka-angadi.myshopify.com');
+        lookupPage.enterEmail('kulkarni.karthik@thinkify.io');
+        lookupPage.enterPassword('Shopify123');
+           
   });
 });

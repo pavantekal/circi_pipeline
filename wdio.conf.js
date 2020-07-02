@@ -65,6 +65,10 @@ exports.config = {
         'goog:chromeOptions': {
             args: ['--disable-infobars', '--window-size=1920,1440'],
         }
+
+        
+
+
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -101,7 +105,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://uitestingplayground.com',
+    baseUrl: 'https://accounts.shopify.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: elementTimeout,
