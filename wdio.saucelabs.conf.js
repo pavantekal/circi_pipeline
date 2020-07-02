@@ -15,4 +15,4 @@ const sauceConfig = Object.assign(baseConfig, {
   ],
 });
 
-exports.config = sauceConfig;
+// exports.config = sauceConfig;
