@@ -1,4 +1,4 @@
-const utilities= require("./support/utils/Utilities");
+const utilities = require("./support/utils/Utilities");
 const chai = require('chai');
 const allure = require('@wdio/allure-reporter').default;
 
@@ -63,10 +63,10 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--disable-infobars', '--window-size=1920,1440'],
+            args: ['--headless', '--disable-gpu', '--disable-infobars', '--window-size=1920,1440'],
         }
 
-        
+
 
 
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -157,19 +157,19 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
-      'spec',
-      ['allure', {
-        outputDir: 'report/allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-      }],
-      ['junit', {
-        outputDir: 'report/junit',
-        outputFileFormat: function(options) { // optional
-          return `test-${options.cid}-results.xml`
-        }
-      }],
-        ['json',{
+        'spec',
+        ['allure', {
+            outputDir: 'report/allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+        }],
+        ['junit', {
+            outputDir: 'report/junit',
+            outputFileFormat: function (options) { // optional
+                return `test-${options.cid}-results.xml`
+            }
+        }],
+        ['json', {
             outputDir: './report/json'
         }]
     ],
@@ -266,7 +266,7 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: function (test, context, { error, result, duration, passed, retries }) {
         if (error !== undefined) {
             try {
                 //TODO: Fix allure reporting on failure
@@ -316,7 +316,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function(exitCode, config, capabilities, results) {
+    onComplete: function (exitCode, config, capabilities, results) {
         const mergeResults = require('wdio-json-reporter/mergeResults');
         mergeResults('./report/json', 'wdio-*', 'testResults.json')
     },
